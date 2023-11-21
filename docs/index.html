@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>一鸣的技术文档</title>
@@ -7,9 +8,15 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- Gitalk css -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <!-- switch between day and night -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
+    title="docsify-darklight-theme" type="text/css" />
 </head>
+
 <body>
-  <div id="app">加载中</div>
+  <div id="app">稍等，正在进入一鸣的技术文档</div>
   <script>
     window.$docsify = {
       //文档标题，显示在侧边栏顶部
@@ -17,10 +24,107 @@
       //远程git仓库地址https://github.com/huyiming-0115/ming-docs.git
       repo: 'https://github.com/huyiming-0115/ming-docs.git',
       //是否启用封面页 Boolean | String  true  |  COVERPAGE.md
-      coverpage:'COVERPAGE.md'
+      coverpage: 'COVERPAGE.md',
+      onlyCover: true,
+      loadSidebar: 'LOADSIDEBAR.md',
+      subMaxLevel: 6,
+      loadNavbar: 'NAVBAR.md',
+      //分页器
+      pagination: {
+        previousText: '上一章',
+        nextText: '下一章',
+      },
+      //谷歌搜索
+      ga: 'UA-XXXXX-Y',
+      // 是否支持代码复制
+      copyCode: {
+        buttonText: '点击复制',
+        errorText: '错误',
+        successText: '复制成功'
+      },
+      //是否支持全局查询
+      search: 'auto', // default
+      search: [
+        '/',            // => /README.md
+        //'/cvtutorials',       // => /guide.md
+        // '/en/guide', // => /zh-cn/guide.md
+        //'/en/',      // => /zh-cn/README.md
+      ],
+      // 全局查询的通用配置
+      search: {
+        maxAge: 86400000, // Expiration time, the default one day
+        paths: [], // or 'auto'
+
+        // Localization
+        placeholder: {
+          '/en/': 'Type to search',
+          '/': '搜索'
+        },
+
+        noData: 'No Results!',
+
+        // Localization
+        noData: {
+          '/': '找不到结果',
+          '/en/': 'No Results'
+        },
+
+        // Headline depth, 1 - 6
+        depth: 2,
+
+        hideOtherSidebarContent: false, // whether or not to hide other sidebar content
+
+        // To avoid search index collision
+        // between multiple websites under the same domain
+        namespace: 'website-1',
+
+        // Use different indexes for path prefixes (namespaces).
+        // NOTE: Only works in 'auto' mode.
+        //
+        // When initialiazing an index, we look for the first path from the sidebar.
+        // If it matches the prefix from the list, we switch to the corresponding index.
+        pathNamespaces: ['/zh-cn', '/en-en'],
+
+        // You can provide a regexp to match prefixes. In this case,
+        // the matching substring will be used to identify the index
+        pathNamespaces: /^(\/(zh-cn|en-en))?(\/(v1|v2))?/,
+        //////////////////////////////////////////////////////////////////////
+      }
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- zoom image -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- pagination plugin script -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- click to copy -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <!-- google analytics -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
+  <!-- switch between day and night -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript">
+  </script>
+  <!-- emoji translate -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <!-- plugin：gitalk -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+      proxy: 'https://strong-caramel-969805.netlify.app/github_access_token',
+      clientID: '766af47712433c2a4206',
+      clientSecret: '8b5066810a4d0e395661dff330e290a8845755cc',
+      repo: 'ming-docs-comment',
+      owner: 'huyiming-0115',
+      admin: ['huyiming-0115'],
+      // facebook-like distraction free mode
+      distractionFreeMode: false,
+      id: decodeURI(window.location.pathname),
+    })
+  </script>
+  <!-- full text search -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
 </body>
+
 </html>
