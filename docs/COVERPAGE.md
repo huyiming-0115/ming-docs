@@ -5,5 +5,5 @@
 * 框架技术：spring、mybatis
 * 中间件：es、mq、redis
 * 数据库技术：mysql
-[GitHub](https://github.com/Geroge1226/lsy-notes.git)
+[GitHub](https://github.com/huyiming-0115/ming-docs.git)
 [Get Started](#quick-start)
