@@ -22,7 +22,25 @@
       //文档标题，显示在侧边栏顶部
       name: '一鸣的技术文档',
       //远程git仓库地址https://github.com/huyiming-0115/ming-docs.git
-      repo: 'https://github.com/huyiming-0115/ming-docs.git',
+      repo: 'true',
+      //自定义右上角展示图标信息
+      corner: {
+        //the url for corner link to.
+        url: "https://github.com/huyiming-0115/ming-docs.git",
+        //the url for corner link to.
+        target:'',
+        // you can set the image link here  
+        icon: "github",
+        // the size of the image  
+        width: 50,
+        height: 50 ,
+        //the color of the icon.
+        color:'',
+        //the background color of the customized icon.
+        background:'',
+        //the text of the title attribute is displayed as a tooltip.
+        title:'点我查看更多信息',
+      },
       //是否启用封面页 Boolean | String  true  |  COVERPAGE.md
       coverpage: 'COVERPAGE.md',
       onlyCover: true,
@@ -107,6 +125,8 @@
   </script>
   <!-- emoji translate -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <!-- 右上角图标自定义组件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-corner/dist/docsify-corner.js"></script>
   <!-- plugin：gitalk -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
